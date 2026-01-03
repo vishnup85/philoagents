@@ -1,0 +1,24 @@
+services:
+  local-dev-atlas:
+    image: mongodb/mongodb-atlas-local:8.0
+    hostname: local-dev-atlas
+    ports:
+      - 27017:27017
+    environment:
+      - MONGODB_INITDB_ROOT_USERNAME=philoagents
+      - MONGODB_INITDB_ROOT_PASSWORD=philoagents
+
+    volumes:
+      - data:/data/db
+      - config:/data/configdb
+    networks:
+      - philoagents-network
+
+networks:
+  philoagents-network:
+    name: philoagents-network
+
+volumes:
+  data:
+  config:
+

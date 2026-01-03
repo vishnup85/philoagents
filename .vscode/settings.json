@@ -1,0 +1,9 @@
+{
+    "python.defaultInterpreterPath": "${workspaceFolder}/philoagents-api/.venv/bin/python",
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/philoagents-api/src"
+    ],
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.typeCheckingMode": "basic"
+}
+
