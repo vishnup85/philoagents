@@ -19,15 +19,16 @@ class Settings(BaseSettings):
 
     # --- MongoDB Configuration ---
 
-    MONGO_URI:str = Field(
-        default="mongodb://philoagents:philoagents@local_dev_atlas:27017/?directConnection=true",
-        description="Connection URI for the local MongoDB Atlas instance.",
+    MONGODB_URI:str = Field(
+        default="mongodb://philoagents:philoagents@localhost:27017/?directConnection=true",
+        description="Connection URI for the local MongoDB Atlas instance. Use 'local_dev_atlas:27017' if running inside Docker network, or 'localhost:27017' if running on host.",
     )
 
     MONGO_DB_NAME: str = "philoagents"
     MONGO_STATE_CHECKPOINT_COLLECTION: str = "philosopher_state_checkpoints"
     MONGO_STATE_WRITES_COLLECTION: str = "philosopher_state_writes"
     MONGO_LONG_TERM_MEMORY_COLLECTION: str = "philosopher_long_term_memory"
+    MONGO_RAG_INDEX_NAME: str = "hybrid_search_index"
 
     COMET_API_KEY: str | None = Field(
         default=None,
@@ -39,5 +40,13 @@ class Settings(BaseSettings):
         description="Project name for Comet ML and Opik tracking.",
     )
     TOTAL_MESSAGES_AFTER_SUMMARY: int = 50
+
+    RAG_TEXT_EMBEDDING_MODEL: str = "sentence-transformers/all-MiniLM-L6-v2"
+    RAG_TEXT_EMBEDDING_DIMENSIONS: int = 384
+    RAG_TOP_K: int = 5
+    RAG_CHUNK_SIZE: int = 256
+    RAG_DEVICE : str = "cpu"
+
+    EXTRACTION_METADATA_FILE_PATH: Path = Path("data/extraction_metadata.json")
 
 settings = Settings()
