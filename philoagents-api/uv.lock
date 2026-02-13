@@ -989,29 +989,29 @@ wheels = [
 
 [[package]]
 name = "langgraph-checkpoint"
-version = "4.0.0"
+version = "2.1.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "langchain-core" },
     { name = "ormsgpack" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/98/76/55a18c59dedf39688d72c4b06af73a5e3ea0d1a01bc867b88fbf0659f203/langgraph_checkpoint-4.0.0.tar.gz", hash = "sha256:814d1bd050fac029476558d8e68d87bce9009a0262d04a2c14b918255954a624", size = 137320, upload-time = "2026-01-12T20:30:26.38Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/29/83/6404f6ed23a91d7bc63d7df902d144548434237d017820ceaa8d014035f2/langgraph_checkpoint-2.1.2.tar.gz", hash = "sha256:112e9d067a6eff8937caf198421b1ffba8d9207193f14ac6f89930c1260c06f9", size = 142420, upload-time = "2025-10-07T17:45:17.129Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/4a/de/ddd53b7032e623f3c7bcdab2b44e8bf635e468f62e10e5ff1946f62c9356/langgraph_checkpoint-4.0.0-py3-none-any.whl", hash = "sha256:3fa9b2635a7c5ac28b338f631abf6a030c3b508b7b9ce17c22611513b589c784", size = 46329, upload-time = "2026-01-12T20:30:25.2Z" },
+    { url = "https://files.pythonhosted.org/packages/c4/f2/06bf5addf8ee664291e1b9ffa1f28fc9d97e59806dc7de5aea9844cbf335/langgraph_checkpoint-2.1.2-py3-none-any.whl", hash = "sha256:911ebffb069fd01775d4b5184c04aaafc2962fcdf50cf49d524cd4367c4d0c60", size = 45763, upload-time = "2025-10-07T17:45:16.19Z" },
 ]
 
 [[package]]
 name = "langgraph-checkpoint-mongodb"
-version = "0.3.0"
+version = "0.2.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "langchain-mongodb" },
     { name = "langgraph-checkpoint" },
     { name = "pymongo" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/f2/ed/bf6833305bcd820376a44118f33a146de0e680f656b6c2eb4d644add04be/langgraph_checkpoint_mongodb-0.3.0.tar.gz", hash = "sha256:7b3df56e17c11ecfb7a5ac26fba34f653c5c7eff879659f87b93fecd3642e00a", size = 137487, upload-time = "2025-11-19T16:35:52.852Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/99/6c/a89a95d8a4b962316d4c9ed00fcbaaa2d58acb84b997fc6ecfaa276bbc08/langgraph_checkpoint_mongodb-0.2.1.tar.gz", hash = "sha256:7846f94cb4578836cb2f720ed8686d781aa07de5deb286bca83c9d7b29391ff4", size = 157409, upload-time = "2025-09-25T17:47:58.316Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/87/56/3e54845b290ab7b8fc2749eb84cf75357835baedc422b16f10d10ccad86e/langgraph_checkpoint_mongodb-0.3.0-py3-none-any.whl", hash = "sha256:1269c08d1544159fcb100b8944f1e8cda520804a622c56925f9f22bc170bcbd6", size = 7823, upload-time = "2025-11-19T16:35:52.048Z" },
+    { url = "https://files.pythonhosted.org/packages/0d/5b/fbde3f1cb9e4b6d0e06fd0a5b470746ef73f70321c9ad67c65097b3e04d7/langgraph_checkpoint_mongodb-0.2.1-py3-none-any.whl", hash = "sha256:fc7488575568eb27869707ad23cb2cdf7e77a567e7915813acf1e9c7c09f0eb5", size = 12390, upload-time = "2025-09-25T17:47:57.237Z" },
 ]
 
 [[package]]
@@ -1583,6 +1583,7 @@ dependencies = [
     { name = "langchain-huggingface" },
     { name = "langchain-mongodb" },
     { name = "langgraph" },
+    { name = "langgraph-checkpoint" },
     { name = "langgraph-checkpoint-mongodb" },
     { name = "loguru" },
     { name = "opik" },
@@ -1603,7 +1604,8 @@ requires-dist = [
     { name = "langchain-huggingface", specifier = ">=0.1.2" },
     { name = "langchain-mongodb", specifier = ">=0.4.0" },
     { name = "langgraph", specifier = ">=0.2.70" },
-    { name = "langgraph-checkpoint-mongodb", specifier = ">=0.1.0" },
+    { name = "langgraph-checkpoint", specifier = ">=2.0,<3.0" },
+    { name = "langgraph-checkpoint-mongodb", specifier = ">=0.2.0,<0.3.0" },
     { name = "loguru", specifier = ">=0.7.3" },
     { name = "opik", specifier = ">=1.4.11" },
     { name = "pydantic", specifier = ">=2.10.6" },
@@ -2450,6 +2452,8 @@ dependencies = [
     { name = "typing-extensions" },
 ]
 wheels = [
+    { url = "https://files.pythonhosted.org/packages/d3/54/a2ba279afcca44bbd320d4e73675b282fcee3d81400ea1b53934efca6462/torch-2.10.0-2-cp312-none-macosx_11_0_arm64.whl", hash = "sha256:13ec4add8c3faaed8d13e0574f5cd4a323c11655546f91fbe6afa77b57423574", size = 79498202, upload-time = "2026-02-10T21:44:52.603Z" },
+    { url = "https://files.pythonhosted.org/packages/ec/23/2c9fe0c9c27f7f6cb865abcea8a4568f29f00acaeadfc6a37f6801f84cb4/torch-2.10.0-2-cp313-none-macosx_11_0_arm64.whl", hash = "sha256:e521c9f030a3774ed770a9c011751fb47c4d12029a3d6522116e48431f2ff89e", size = 79498254, upload-time = "2026-02-10T21:44:44.095Z" },
     { url = "https://files.pythonhosted.org/packages/cc/af/758e242e9102e9988969b5e621d41f36b8f258bb4a099109b7a4b4b50ea4/torch-2.10.0-cp312-cp312-manylinux_2_28_aarch64.whl", hash = "sha256:5fd4117d89ffd47e3dcc71e71a22efac24828ad781c7e46aaaf56bf7f2796acf", size = 145996088, upload-time = "2026-01-21T16:24:44.171Z" },
     { url = "https://files.pythonhosted.org/packages/23/8e/3c74db5e53bff7ed9e34c8123e6a8bfef718b2450c35eefab85bb4a7e270/torch-2.10.0-cp312-cp312-manylinux_2_28_x86_64.whl", hash = "sha256:787124e7db3b379d4f1ed54dd12ae7c741c16a4d29b49c0226a89bea50923ffb", size = 915711952, upload-time = "2026-01-21T16:23:53.503Z" },
     { url = "https://files.pythonhosted.org/packages/6e/01/624c4324ca01f66ae4c7cd1b74eb16fb52596dce66dbe51eff95ef9e7a4c/torch-2.10.0-cp312-cp312-win_amd64.whl", hash = "sha256:2c66c61f44c5f903046cc696d088e21062644cbe541c7f1c4eaae88b2ad23547", size = 113757972, upload-time = "2026-01-21T16:24:39.516Z" },

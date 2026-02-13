@@ -26,10 +26,8 @@ async def get_response(messages: str | list[str] | list[dict[str, Any]],
     graph_builder = create_workflow_graph()
 
     try:
-        # MongoDBSaver uses a synchronous context manager, but works fine in async functions
-        # Note: AsyncMongoDBSaver is not available in version 0.1.0
         async with AsyncMongoDBSaver.from_conn_string(
-            conn_string=settings.MONGO_URI,
+            conn_string=settings.MONGODB_URI,
             db_name=settings.MONGO_DB_NAME,
             checkpoint_collection_name=settings.MONGO_STATE_CHECKPOINT_COLLECTION,
             writes_collection_name=settings.MONGO_STATE_WRITES_COLLECTION,
