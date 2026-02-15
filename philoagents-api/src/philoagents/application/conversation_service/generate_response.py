@@ -5,7 +5,7 @@ from philoagents.application.conversation_service.workflow.state import Philosop
 from philoagents.application.conversation_service.workflow.graph import create_workflow_graph
 from langgraph.checkpoint.mongodb.aio import AsyncMongoDBSaver
 from philoagents.config import settings
-#from opik.integrations.langchain import OpikTracer
+from opik.integrations.langchain import OpikTracer
 
 # # Workaround for langchain.debug attribute error
 # try:
@@ -35,7 +35,7 @@ async def get_response(messages: str | list[str] | list[dict[str, Any]],
 
             graph = graph_builder.compile(checkpointer=checkpointer)
 
-            #opik_tracer = OpikTracer(graph=graph.get_graph(xray=True))
+            opik_tracer = OpikTracer(graph=graph.get_graph(xray=True))
 
             thread_id = (
                 philosopher_id if not new_thread else f"{philosopher_id}-{uuid.uuid4()}"
@@ -46,7 +46,7 @@ async def get_response(messages: str | list[str] | list[dict[str, Any]],
                 "configurable": {
                     "thread_id": thread_id,
                 },
-                #"callbacks": [opik_tracer],
+                "callbacks": [opik_tracer],
             }
 
             output_state = await graph.ainvoke(

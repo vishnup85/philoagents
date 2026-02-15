@@ -32,11 +32,16 @@ class Settings(BaseSettings):
 
     COMET_API_KEY: str | None = Field(
         default=None,
-        description="API key for Comet ML and Opik services."
+        description="API key for Comet ML and Opik services. Also used as OPIK_API_KEY for prompt versioning.",
+    )
+
+    COMET_WORKSPACE: str | None = Field(
+        default=None,
+        description="Workspace name for Opik Cloud (required for prompt library). Find in Opik UI: opik > workspace-name > Projects.",
     )
 
     COMET_PROJECT: str = Field(
-        default="philoagents_course",
+        default="philoagents",
         description="Project name for Comet ML and Opik tracking.",
     )
     TOTAL_MESSAGES_AFTER_SUMMARY: int = 50
@@ -48,5 +53,7 @@ class Settings(BaseSettings):
     RAG_DEVICE : str = "cpu"
 
     EXTRACTION_METADATA_FILE_PATH: Path = Path("data/extraction_metadata.json")
+    EVALUATION_DATASET_FILE_PATH: Path = Path("data/evaluation_dataset.json")
+
 
 settings = Settings()
