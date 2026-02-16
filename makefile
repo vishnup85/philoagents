@@ -18,3 +18,8 @@ create-long-term-memory:
 create-long-term-memory-docker:check-docker-image
 	@docker compose ps local_dev_atlas | grep -q "Up" || (echo "MongoDB service is not running. Starting it..." && docker compose up -d local_dev_atlas && sleep 5)
 	docker run --rm --network philoagents-network --env-file philoagents-api/.env -e MONGODB_URI=mongodb://philoagents:philoagents@local_dev_atlas:27017/?directConnection=true -v ./philoagents-api/data:/app/data philoagents-api uv run python -m tools.create_long_term_memory
+
+
+evaluate-agent: check-docker-image
+	@docker compose ps local_dev_atlas | grep -q "Up" || (echo "MongoDB service is not running. Starting it..." && docker compose up -d local_dev_atlas && sleep 5)
+	docker run --rm --network=philoagents-network --env-file philoagents-api/.env -e MONGODB_URI=mongodb://philoagents:philoagents@local_dev_atlas:27017/?directConnection=true -v ./philoagents-api/data:/app/data philoagents-api uv run python -m tools.evaluate_agent --workers 1 --nb-samples 15

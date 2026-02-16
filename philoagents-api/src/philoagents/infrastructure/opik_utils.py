@@ -3,6 +3,7 @@ import os
 import opik
 from loguru import logger
 from opik.configurator.configure import OpikConfigurator
+from opik.rest_api.core.api_error import ApiError
 
 from philoagents.config import settings
 
@@ -45,3 +46,27 @@ def configure() -> None:
         logger.warning(
             "Couldn't configure Opik. Check COMET_API_KEY, COMET_PROJECT, and COMET_WORKSPACE."
         )
+
+
+
+def get_dataset(name: str) -> opik.Dataset:
+    client = opik.Opik()
+    try:
+        dataset = client.get_dataset(name=name)
+    except Exception:
+        logger.warning(f"Dataset {name} not found.")
+        return None
+    return dataset
+
+
+def create_dataset(name: str, description: str, items: list[dict]) -> opik.Dataset:
+
+    client = opik.Opik()
+    try:
+        client.delete_dataset(name=name)
+    except ApiError as e:
+        if e.status_code != 404:
+            raise
+    dataset = client.create_dataset(name=name, description=description)
+    dataset.insert(items)
+    return dataset
