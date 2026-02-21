@@ -1,5 +1,6 @@
 # Dependencies
 node_modules/
-.gitkey
-.gitkey.pub
+# SSH keys (never commit these)
+gitkey
+gitkey.pub
 
